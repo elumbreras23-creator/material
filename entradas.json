@@ -47,6 +47,47 @@
   "url": "publicaciones/UT03-guia-interactiva-memorias-RAM.html",
   "unidad": "UT03",
   "tipo": "Teoría"
-}
+},
+  },
+  {
+    "titulo": "UT03 · B03 · Entrenador autocorregible: Buses y ranuras de expansión",
+    "fecha": "2026-11-17T17:00:00",
+    "descripcion": "Entrenador autocorregible sobre buses y ranuras de expansión.",
+    "url": "publicaciones/UT03-B03-buses-y-expansion-entrenador.html",
+    "unidad": "UT03",
+    "tipo": "Simulador"
+  },
+  {
+    "titulo": "UT03 · B03 · Práctica aplicada: Buses y ranuras de expansión",
+    "fecha": "2026-11-17T17:00:00",
+    "descripcion": "Práctica aplicada sobre buses y ranuras de expansión.",
+    "url": "publicaciones/UT03-B03-buses-y-expansion-practica.html",
+    "unidad": "UT03",
+    "tipo": "Práctica"
+  },
+  {
+    "titulo": "UT03 · B04 · Guía visual: Conectores internos y externos",
+    "fecha": "2026-11-17T17:00:00",
+    "descripcion": "Guía visual sobre conectores internos y externos.",
+    "url": "publicaciones/UT03-B04-conectores-internos-externos-guia.html",
+    "unidad": "UT03",
+    "tipo": "Teoría"
+  },
+  {
+    "titulo": "UT03 · B04 · Entrenador autocorregible: Conectores internos y externos",
+    "fecha": "2026-11-17T17:00:00",
+    "descripcion": "Entrenador autocorregible sobre conectores internos y externos.",
+    "url": "publicaciones/UT03-B04-conectores-internos-externos-entrenador.html",
+    "unidad": "UT03",
+    "tipo": "Simulador"
+  },
+  {
+    "titulo": "UT03 · B04 · Práctica aplicada: Conectores internos y externos",
+    "fecha": "2026-11-17T17:00:00",
+    "descripcion": "Práctica aplicada sobre conectores internos y externos.",
+    "url": "publicaciones/UT03-B04-conectores-internos-externos-practica.html",
+    "unidad": "UT03",
+    "tipo": "Práctica"
+  }
 
 ]
