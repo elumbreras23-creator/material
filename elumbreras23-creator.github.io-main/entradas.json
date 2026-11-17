@@ -1,0 +1,136 @@
+
+[
+  {
+    "titulo": "Mi primera publicación. Como usar mi web",
+    "fecha": "2026-11-15",
+    "descripcion": "Estoy aprendiendo a publicar entradas utilizando HTML, JavaScript y JSON.",
+    "url": "publicaciones/entrada1.html"
+  },
+  {
+    "titulo": "Construcción de la web: Json y Java",
+    "fecha": "2026-11-14T12:00h",
+    "descripcion": "Cómo configurar un servidor Apache en Linux MAX 12.",
+    "url": "publicaciones/entrada2.html"
+  },
+  {
+  "titulo": "Mi nueva publicación",
+  "fecha": "2026-11-15",
+  "descripcion": "Hoy he aprendido a trabajar con JSON.",
+  "url": "publicaciones/nueva-entrada.html"
+},
+
+{
+  "titulo": "UT02 - Práctica 02: Prácticas de iniciación al hardware",
+  "fecha": "2026-11-15T17:30:00",
+  "descripcion": "Dos prácticas para 1.º SMR: identificación de componentes internos y funcionamiento básico del ordenador.",
+  "url": "publicaciones/practicas-ut02.html"
+},
+  {
+  "titulo": "UT02 - Práctica 02:El ordenador por dentro-Autocorregible",
+  "fecha": "2026-11-15T12:30:00",
+  "descripcion": "Prácticas de iniciación al hardware y funcionamiento del ordenador.",
+  "url": "publicaciones/practicas-ut02-autocorregibles.html"
+},
+
+{
+  "titulo": "Guía práctica de Git y GitHub Pages",
+  "fecha": "2026-11-15",
+  "descripcion": "Manual para aprender a publicar y actualizar el blog desde MAX 12 utilizando Git.",
+  "url": "publicaciones/guia-git-github-pages.html"
+},
+{
+  "titulo": "Automatizar la publicación de mi blog con Git",
+  "fecha": "2026-11-15",
+  "descripcion": "Aprender a publicar nuevas entradas en GitHub Pages mediante un script Bash en MAX 12.",
+  "url": "publicaciones/automatizar-publicacion-github.html"
+},
+{
+  "titulo": "Sincronizar GitHub, Git y Apache",
+  "fecha": "2026-11-16T10:00:00",
+  "descripcion": "Guía para sincronizar mi web local con GitHub sin perder modificaciones.",
+  "url": "publicaciones/sincronizar-git-github-apache.html"
+},
+  {
+  "titulo": "Publicar directamente en GitHub sin Apache",
+  "fecha": "2026-11-16T11:00:00",
+  "descripcion": "Guía para subir entradas HTML al blog desde cualquier ordenador y registrarlas en JSON.",
+  "url": "publicaciones/publicar-directamente-en-github.html"
+},
+{
+  "titulo": "UT02 - Práctica 03: Software y arquitectura de Von Neumann",
+  "fecha": "2026-11-16T11:30:00",
+  "descripcion": "Reconocer los componentes de la CPU, memoria, buses y software de arranque.",
+  "url": "publicaciones/practica03-ut02-nueva.html"
+},
+{
+  "titulo": "UT02 - Práctica 04: Funcionamiento interno e instrucciones",
+  "fecha": "2026-11-16T11:35:00",
+  "descripcion": "Comprender el recorrido de las instrucciones mediante actividades y simulaciones.",
+  "url": "publicaciones/practica04-ut02-instrucciones.html"
+},
+{
+  "titulo": "UT01 - Práctica: Fundamentos de electricidad",
+  "fecha": "2026-11-14T11:00:00",
+  "descripcion": "Práctica interactiva y autocorregible sobre identificación de resistencias mediante códigos de colores, circuitos en serie, paralelo y mixtos, magnitudes eléctricas, ley de Ohm, potencia y conversiones de unidades.",
+  "url": "publicaciones/practica-electricidad-autocorregible_v2.html"
+},
+
+{
+  "titulo": "UT06 - Práctica 01: Seguridad y montaje del ordenador",
+  "fecha": "2026-11-16T15:00:00",
+  "descripcion": "Actividad autocorregible sobre prevención ESD, herramientas y procedimientos de montaje de un ordenador.",
+  "url": "publicaciones/ut06-practica01-montaje-autocorregible.html"
+},
+{
+  "titulo": "UT06 - Práctica 02: Comprobación y diagnóstico POST",
+  "fecha": "2026-11-16T15:05:00",
+  "descripcion": "Actividad autocorregible sobre el primer encendido, mensajes POST y señales acústicas de error.",
+  "url": "publicaciones/ut06-practica02-post-diagnostico-autocorregible.html"
+},
+  
+{
+  "titulo": "UT07 - Entrenador: Reparación de equipos",
+  "fecha": "2026-11-16T18:40:00",
+  "descripcion": "Entrenador interactivo autocorregible de 1.º SMR: 45 retos sobre mantenimiento, averías, señales, periféricos, limpieza y diagnóstico, con pistas y reintentos.",
+  "url": "publicaciones/entrenador-ut07-reparacion-equipos.html"
+},
+  
+{
+  "titulo": "UT08 - Entrenador: Opciones de arranque e imágenes",
+  "fecha": "2026-11-16T19:00:00",
+  "descripcion": "Entrenador interactivo autocorregible de 1.º SMR: 66 retos sobre discos y particiones, arranque dual, recuperación, Live/ISO, copias de seguridad, restauración y Clonezilla. Con explicaciones y reintentos.",
+  "url": "publicaciones/entrenador-ut08-arranque-imagenes.html"
+},
+{
+  "titulo": "UT09 - Entrenador: Periféricos",
+  "fecha": "2026-11-16T19:30:00",
+  "descripcion": "Entrenador interactivo autocorregible de 1.º SMR con 103 preguntas sobre conexiones, USB, vídeo, audio, redes, alimentación y periféricos de entrada y salida. Corrección inmediata, explicaciones y reintentos.",
+  "url": "publicaciones/entrenador-ut09-perifericos.html"
+},
+
+{
+  "titulo": "UT04 - Entrenador: Dispositivos de almacenamiento",
+  "fecha": "2026-11-16T20:00:00",
+  "descripcion": "Entrenador autocorregible de 1.º SMR con 91 ejercicios sobre HDD, geometría, cálculos de capacidad, S.M.A.R.T., MBR, particiones, sistemas de archivos, IDE/PATA, SATA y SSD. Corrección inmediata, pistas, explicaciones y reintentos.",
+  "url": "publicaciones/entrenador-ut04-dispositivos-almacenamiento.html"
+},
+
+{
+  "titulo": "UT05 - Entrenador: Adaptadores gráficos y sonido",
+  "fecha": "2026-11-16T19:50:00",
+  "descripcion": "Entrenador autocorregible de 1.º SMR con 84 retos sobre GPU, VRAM, PCIe, refrigeración, conexiones de vídeo, sonido digital y analógico, formatos y cálculos. Esquemas visuales, pistas y reintentos.",
+  "url": "publicaciones/entrenador-ut05-adaptadores-graficos-sonido.html"
+},
+  {
+  "titulo": "UT02 - Guía interactiva: Funcionamiento de los Sistemas Informáticos",
+  "fecha": "2026-11-17T09:30:00",
+  "descripcion": "Material teórico interactivo sobre hardware, software, arquitectura Von Neumann, CPU, memoria, buses y ciclo de ejecución de instrucciones. Incluye esquemas, simulaciones y actividades de autoevaluación.",
+  "url": "publicaciones/UT02-guia-interactiva.html"
+}
+
+
+
+
+
+
+]
