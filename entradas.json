@@ -45,8 +45,8 @@
   "fecha": "2026-11-17T16:00:00",
   "descripcion": "Aprende a identificar módulos y zócalos RAM, interpretar sus etiquetas y calcular velocidades, anchos de banda y latencias mediante simulaciones y actividades autocorregibles.",
   "url": "publicaciones/UT03-guia-interactiva-memorias-RAM.html",
-  "categoria": "UT03"
+  "unidad": "UT03",
+  "tipo": "Teoría"
 }
-
 
 ]
