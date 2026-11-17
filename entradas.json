@@ -13,7 +13,15 @@
   "fecha": "2026-11-17T11:35:00",
   "descripcion": "Simulación paso a paso de la máquina de Von Neumann: búsqueda, decodificación, suma mediante la ALU y almacenamiento del resultado, con buses de 8 bits.",
   "url": "publicaciones/UT02-simulador-von-neumann-suma.html"
+},
+ 
+{
+  "titulo": "UT02 - Simulador 1.0: Suma en la máquina de Von Neumann",
+  "fecha": "2026-11-17T11:35:00",
+  "descripcion": "Simulación básica paso a paso de una suma mediante direccionamiento directo: búsqueda, decodificación, ejecución y almacenamiento en memoria.",
+  "url": "publicaciones/UT02-simulador-von-neumann-suma-v1.html"
 }
+
 
 
 
