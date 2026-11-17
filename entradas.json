@@ -1,50 +1,43 @@
 
-[
 
+[
+  {
+    "titulo": "UT02 - Guía interactiva: Funcionamiento de los Sistemas Informáticos (8 bits)",
+    "fecha": "2026-11-17T10:25:00",
+    "unidad": "UT02",
+    "tipo": "Teoría",
+    "descripcion": "Guía interactiva sobre hardware, software, arquitectura Von Neumann, CPU, memoria RAM y buses. Incluye simulación de lectura de memoria con buses de 8 bits y ejercicios.",
+    "url": "publicaciones/UT02-guia-interactiva-8bits.html"
+  },
+  {
+    "titulo": "UT02 - Simulador 1.0: Suma en la máquina de Von Neumann",
+    "fecha": "2026-11-17T11:35:00",
+    "unidad": "UT02",
+    "tipo": "Simulador",
+    "descripcion": "Simulación básica de una suma con direccionamiento directo, mostrando búsqueda, decodificación, ejecución y almacenamiento.",
+    "url": "publicaciones/UT02-simulador-von-neumann-suma-v1.html"
+  },
+  {
+    "titulo": "UT02 - Simulador 2.0: Suma de dos datos en memoria",
+    "fecha": "2026-11-17T11:36:00",
+    "unidad": "UT02",
+    "tipo": "Simulador",
+    "descripcion": "Simulación avanzada de búsqueda, decodificación, suma mediante la ALU y almacenamiento del resultado mediante buses de 8 bits.",
+    "url": "publicaciones/UT02-simulador-von-neumann-suma.html"
+  },
+  {
+    "titulo": "UT02 - Práctica evaluable: Máquina de Von Neumann",
+    "fecha": "2026-11-17T12:00:00",
+    "unidad": "UT02",
+    "tipo": "Práctica",
+    "descripcion": "Práctica evaluable sobre CPU, memoria, buses y ciclo de instrucción. Incluye preguntas de razonamiento y rúbrica, sin autocorrección.",
+    "url": "publicaciones/UT02-practica-von-neumann-ALUMNO-sin-autocorreccion.html"
+  },
  {
-  "titulo": "UT02 - Guía interactiva: Funcionamiento de los Sistemas Informáticos (8 bits)",
-  "fecha": "2026-11-17T10:25:00",
-  "descripcion": "Guía teórica interactiva sobre hardware, software, arquitectura Von Neumann, CPU, memoria RAM y buses. Incluye una simulación paso a paso de lectura de memoria, con buses de direcciones y datos de 8 bits, señales de control, representación binaria y ejercicios de autoevaluación.",
-  "url": "publicaciones/UT02-guia-interactiva-8bits.html"
-},
- 
-{
-  "titulo": "UT02 - Simulador interactivo: Suma de dos datos en memoria",
-  "fecha": "2026-11-17T11:35:00",
-  "descripcion": "Simulación paso a paso de la máquina de Von Neumann: búsqueda, decodificación, suma mediante la ALU y almacenamiento del resultado, con buses de 8 bits.",
-  "url": "publicaciones/UT02-simulador-von-neumann-suma.html"
-},
- 
-{
-  "titulo": "UT02 - Simulador 1.0: Suma en la máquina de Von Neumann",
-  "fecha": "2026-11-17T11:35:00",
-  "descripcion": "Simulación básica paso a paso de una suma mediante direccionamiento directo: búsqueda, decodificación, ejecución y almacenamiento en memoria.",
-  "url": "publicaciones/UT02-simulador-von-neumann-suma-v1.html"
-},
- 
-{
   "titulo": "Profesor_UT02 - Práctica evaluable: Máquina de Von Neumann",
   "fecha": "2026-11-17T12:00:00",
   "descripcion": "Práctica autocorregible sobre la búsqueda, decodificación y ejecución de una suma, con análisis de registros, buses, memoria y rúbrica de evaluación.",
   "url": "publicaciones/UT02-practica-von-neumann-autocorregible.html"
-},
-
-
-{
-  "titulo": "UT02 - Práctica evaluable: Máquina de Von Neumann",
-  "fecha": "2026-11-17T12:00:00",
-  "descripcion": "Práctica evaluable sobre la CPU, memoria, buses y ciclo de instrucción. Incluye preguntas de razonamiento y rúbrica, sin autocorrección.",
-  "url": "publicaciones/UT02-practica-von-neumann-ALUMNO-sin-autocorreccion.html"
 }
-
-
-
-
-
-
-
-
-
-
 
 ]
