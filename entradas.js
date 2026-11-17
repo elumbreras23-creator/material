@@ -15,15 +15,26 @@ fetch("entradas.json")
 
     contenedor.innerHTML = "";
 
-    // Agrupar las publicaciones por unidad
-    const grupos = {};
+    // Crear todas las carpetas, aunque estén vacías
+    const grupos = {
+      "General": [],
+      "UT01": [],
+      "UT02": [],
+      "UT03": [],
+      "UT04": [],
+      "UT05": [],
+      "UT06": [],
+      "UT07": [],
+      "UT08": [],
+      "UT09": []
+    };
 
+    // Clasificar las publicaciones por unidad
     entradas.forEach(entrada => {
 
-      // Si alguna entrada no tiene unidad,
-      // se coloca en una carpeta general.
       const unidad = entrada.unidad || "General";
 
+      // Permitir unidades adicionales en el futuro
       if (!grupos[unidad]) {
         grupos[unidad] = [];
       }
@@ -32,13 +43,27 @@ fetch("entradas.json")
     });
 
     // Orden de las carpetas
-    const unidades = Object.keys(grupos).sort(
-      (a, b) => a.localeCompare(b, "es", {
-        numeric: true
-      })
-    );
+    const unidades = [
+      "General",
+      "UT01",
+      "UT02",
+      "UT03",
+      "UT04",
+      "UT05",
+      "UT06",
+      "UT07",
+      "UT08",
+      "UT09"
+    ];
 
-    // Orden de los tipos de materiales
+    // Añadir otras unidades que pudieran existir
+    Object.keys(grupos).forEach(unidad => {
+      if (!unidades.includes(unidad)) {
+        unidades.push(unidad);
+      }
+    });
+
+    // Ordenar los tipos de recursos
     const ordenTipos = {
       "Teoría": 1,
       "Simulador": 2,
@@ -49,7 +74,7 @@ fetch("entradas.json")
 
       const publicaciones = grupos[unidad];
 
-      // Ordenar dentro de cada unidad
+      // Ordenar las publicaciones dentro de la carpeta
       publicaciones.sort((a, b) => {
 
         const tipoA = ordenTipos[a.tipo] || 99;
@@ -60,15 +85,17 @@ fetch("entradas.json")
         }
 
         return a.titulo.localeCompare(
-          b.titulo, "es", { numeric: true }
+          b.titulo,
+          "es",
+          { numeric: true }
         );
       });
 
       // Crear carpeta desplegable
       const bloque = document.createElement("details");
 
-      // Abrir la primera carpeta inicialmente
-      bloque.open = indice === 0;
+      // Abrir inicialmente General
+      bloque.open = unidad === "General";
 
       const cabecera = document.createElement("summary");
 
@@ -100,6 +127,7 @@ fetch("entradas.json")
         }
 
         enlace.href = entrada.url;
+
         enlace.textContent =
           icono + " " + entrada.titulo;
 
@@ -107,7 +135,10 @@ fetch("entradas.json")
 
         // Mostrar descripción debajo del enlace
         if (entrada.descripcion) {
-          const descripcion = document.createElement("p");
+
+          const descripcion =
+            document.createElement("p");
+
           descripcion.textContent = entrada.descripcion;
           descripcion.style.fontSize = "0.9em";
           descripcion.style.color = "#666";
@@ -124,6 +155,7 @@ fetch("entradas.json")
     });
   })
   .catch(error => {
+
     console.error(error);
 
     const contenedor =
