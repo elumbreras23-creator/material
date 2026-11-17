@@ -1,10 +1,11 @@
 
 [
-  {
+ {
   "titulo": "UT02 - Guía interactiva: Funcionamiento de los Sistemas Informáticos",
-  "fecha": "2026-11-17T09:30:00",
-  "descripcion": "Material teórico interactivo sobre hardware, software, arquitectura Von Neumann, CPU, memoria, buses y ciclo de ejecución de instrucciones. Incluye esquemas, simulaciones y actividades de autoevaluación.",
+  "fecha": "2026-11-17T10:25:00",
+  "descripcion": "Documentación teórica interactiva sobre hardware, software, arquitectura Von Neumann, CPU, memoria RAM y buses. Incluye una simulación paso a paso de lectura de memoria con buses de direcciones y datos de 8 bits, representación binaria, señales de control y actividades de autoevaluación.",
   "url": "publicaciones/UT02-guia-interactiva.html"
+}
 }
 
 
