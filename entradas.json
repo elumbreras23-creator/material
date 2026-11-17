@@ -6,7 +6,15 @@
   "fecha": "2026-11-17T10:25:00",
   "descripcion": "Guía teórica interactiva sobre hardware, software, arquitectura Von Neumann, CPU, memoria RAM y buses. Incluye una simulación paso a paso de lectura de memoria, con buses de direcciones y datos de 8 bits, señales de control, representación binaria y ejercicios de autoevaluación.",
   "url": "publicaciones/UT02-guia-interactiva-8bits.html"
+},
+ 
+{
+  "titulo": "UT02 - Simulador interactivo: Suma de dos datos en memoria",
+  "fecha": "2026-11-17T11:35:00",
+  "descripcion": "Simulación paso a paso de la máquina de Von Neumann: búsqueda, decodificación, suma mediante la ALU y almacenamiento del resultado, con buses de 8 bits.",
+  "url": "publicaciones/UT02-simulador-von-neumann-suma.html"
 }
+
 
 
 
