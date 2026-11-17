@@ -49,15 +49,15 @@
     "url": "publicaciones/UT03-guia-interactiva-memorias-RAM.html"
   },
   {
-    "titulo": "UT03 · Itinerario de componentes internos",
+    "titulo": "UT03 - Itinerario de componentes internos",
     "fecha": "2026-11-17T17:00:00",
     "unidad": "UT03",
     "tipo": "Teoría",
-    "descripcion": "Página de navegación por los cuatro bloques de contenidos, entrenadores y prácticas de componentes internos.",
+    "descripcion": "Página de navegación por los cuatro bloques de contenidos, entrenadores y prácticas.",
     "url": "publicaciones/UT03-ruta-componentes.html"
   },
   {
-    "titulo": "UT03 · B01 · Guía visual: Caja, fuente y refrigeración",
+    "titulo": "UT03 - B01 - Guía: Caja, fuente y refrigeración",
     "fecha": "2026-11-17T17:00:00",
     "unidad": "UT03",
     "tipo": "Teoría",
@@ -65,88 +65,88 @@
     "url": "publicaciones/UT03-B01-caja-fuente-refrigeracion-guia.html"
   },
   {
-    "titulo": "UT03 · B01 · Entrenador: Caja, fuente y refrigeración",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B01 - Entrenador: Caja, fuente y refrigeración",
+    "fecha": "2026-11-17T17:01:00",
     "unidad": "UT03",
     "tipo": "Simulador",
     "descripcion": "Entrenador autocorregible sobre cajas, alimentación y refrigeración.",
     "url": "publicaciones/UT03-B01-caja-fuente-refrigeracion-entrenador.html"
   },
   {
-    "titulo": "UT03 · B01 · Práctica: Caja, fuente y refrigeración",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B01 - Práctica: Caja, fuente y refrigeración",
+    "fecha": "2026-11-17T17:02:00",
     "unidad": "UT03",
     "tipo": "Práctica",
     "descripcion": "Actividades aplicadas sobre selección de cajas, fuentes y refrigeración.",
     "url": "publicaciones/UT03-B01-caja-fuente-refrigeracion-practica.html"
   },
   {
-    "titulo": "UT03 · B02 · Guía visual: Placa base, chipset y BIOS",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B02 - Guía: Placa base, chipset y BIOS",
+    "fecha": "2026-11-17T17:03:00",
     "unidad": "UT03",
     "tipo": "Teoría",
     "descripcion": "Formatos y componentes de la placa base, chipset, BIOS, UEFI y POST.",
     "url": "publicaciones/UT03-B02-placa-chipset-bios-guia.html"
   },
   {
-    "titulo": "UT03 · B02 · Entrenador: Placa base, chipset y BIOS",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B02 - Entrenador: Placa base, chipset y BIOS",
+    "fecha": "2026-11-17T17:04:00",
     "unidad": "UT03",
     "tipo": "Simulador",
     "descripcion": "Entrenador autocorregible sobre placas base, chipset y BIOS/UEFI.",
     "url": "publicaciones/UT03-B02-placa-chipset-bios-entrenador.html"
   },
   {
-    "titulo": "UT03 · B02 · Práctica: Placa base, chipset y BIOS",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B02 - Práctica: Placa base, chipset y BIOS",
+    "fecha": "2026-11-17T17:05:00",
     "unidad": "UT03",
     "tipo": "Práctica",
     "descripcion": "Actividades de identificación, compatibilidad y configuración de placa base.",
     "url": "publicaciones/UT03-B02-placa-chipset-bios-practica.html"
   },
   {
-    "titulo": "UT03 · B03 · Guía visual: Buses y ranuras de expansión",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B03 - Guía: Buses y ranuras de expansión",
+    "fecha": "2026-11-17T17:06:00",
     "unidad": "UT03",
     "tipo": "Teoría",
-    "descripcion": "Buses de comunicación, ranuras ISA, PCI, AGP y PCI Express, características y usos.",
+    "descripcion": "Buses de comunicación y ranuras ISA, PCI, AGP y PCI Express.",
     "url": "publicaciones/UT03-B03-buses-y-expansion-guia.html"
   },
   {
-    "titulo": "UT03 · B03 · Entrenador autocorregible: Buses y ranuras de expansión",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B03 - Entrenador: Buses y ranuras de expansión",
+    "fecha": "2026-11-17T17:07:00",
     "unidad": "UT03",
     "tipo": "Simulador",
     "descripcion": "Entrenador autocorregible sobre buses y ranuras de expansión.",
     "url": "publicaciones/UT03-B03-buses-y-expansion-entrenador.html"
   },
   {
-    "titulo": "UT03 · B03 · Práctica aplicada: Buses y ranuras de expansión",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B03 - Práctica: Buses y ranuras de expansión",
+    "fecha": "2026-11-17T17:08:00",
     "unidad": "UT03",
     "tipo": "Práctica",
     "descripcion": "Práctica aplicada sobre buses y ranuras de expansión.",
     "url": "publicaciones/UT03-B03-buses-y-expansion-practica.html"
   },
   {
-    "titulo": "UT03 · B04 · Guía visual: Conectores internos y externos",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B04 - Guía: Conectores internos y externos",
+    "fecha": "2026-11-17T17:09:00",
     "unidad": "UT03",
     "tipo": "Teoría",
-    "descripcion": "Guía visual sobre conectores internos y externos.",
+    "descripcion": "Conectores SATA, M.2, USB, HDMI, DisplayPort, red, audio y panel frontal.",
     "url": "publicaciones/UT03-B04-conectores-internos-externos-guia.html"
   },
   {
-    "titulo": "UT03 · B04 · Entrenador autocorregible: Conectores internos y externos",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B04 - Entrenador: Conectores internos y externos",
+    "fecha": "2026-11-17T17:10:00",
     "unidad": "UT03",
     "tipo": "Simulador",
     "descripcion": "Entrenador autocorregible sobre conectores internos y externos.",
     "url": "publicaciones/UT03-B04-conectores-internos-externos-entrenador.html"
   },
   {
-    "titulo": "UT03 · B04 · Práctica aplicada: Conectores internos y externos",
-    "fecha": "2026-11-17T17:00:00",
+    "titulo": "UT03 - B04 - Práctica: Conectores internos y externos",
+    "fecha": "2026-11-17T17:11:00",
     "unidad": "UT03",
     "tipo": "Práctica",
     "descripcion": "Práctica aplicada sobre conectores internos y externos.",
