@@ -20,7 +20,15 @@
   "fecha": "2026-11-17T11:35:00",
   "descripcion": "Simulación básica paso a paso de una suma mediante direccionamiento directo: búsqueda, decodificación, ejecución y almacenamiento en memoria.",
   "url": "publicaciones/UT02-simulador-von-neumann-suma-v1.html"
+},
+ 
+{
+  "titulo": "UT02 - Práctica evaluable: Máquina de Von Neumann",
+  "fecha": "2026-11-17T12:00:00",
+  "descripcion": "Práctica autocorregible sobre la búsqueda, decodificación y ejecución de una suma, con análisis de registros, buses, memoria y rúbrica de evaluación.",
+  "url": "publicaciones/UT02-practica-von-neumann-autocorregible.html"
 }
+
 
 
 
