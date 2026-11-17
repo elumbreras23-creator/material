@@ -27,7 +27,16 @@
   "fecha": "2026-11-17T12:00:00",
   "descripcion": "Práctica autocorregible sobre la búsqueda, decodificación y ejecución de una suma, con análisis de registros, buses, memoria y rúbrica de evaluación.",
   "url": "publicaciones/Profesor_UT02-practica-von-neumann-autocorregible.html"
+},
+
+
+{
+  "titulo": "UT02 - Práctica evaluable: Máquina de Von Neumann",
+  "fecha": "2026-11-17T12:00:00",
+  "descripcion": "Práctica evaluable sobre la CPU, memoria, buses y ciclo de instrucción. Incluye preguntas de razonamiento y rúbrica, sin autocorrección.",
+  "url": "publicaciones/UT02-practica-von-neumann-ALUMNO-sin-autocorreccion.html"
 }
+
 
 
 
