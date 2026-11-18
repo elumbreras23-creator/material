@@ -160,6 +160,24 @@
   "tipo": "Práctica",
   "descripcion": "Guía interactiva de taller para desmontar, montar y verificar equipos microinformáticos, con procedimientos paso a paso y actividades autocorregibles.",
   "url": "taller/ensamblado-equipos.html"
+},
+  
+{
+  "titulo": "UT06 - Práctica 01: Montaje de equipos informáticos",
+  "fecha": "2026-11-18T10:15:00",
+  "unidad": "UT06",
+  "tipo": "Práctica",
+  "descripcion": "Actividad autocorregible sobre los procedimientos y buenas prácticas para el montaje de equipos informáticos.",
+  "url": "publicaciones/ut06-practica01-montaje-autocorregible.html"
+},
+{
+  "titulo": "UT06 - Práctica 02: Diagnóstico POST y errores de arranque",
+  "fecha": "2026-11-18T10:20:00",
+  "unidad": "UT06",
+  "tipo": "Práctica",
+  "descripcion": "Actividad autocorregible para identificar e interpretar errores POST y diagnosticar problemas durante el arranque del equipo.",
+  "url": "publicaciones/ut06-practica02-post-diagnostico-autocorregible.html"
 }
+
 
 ]
