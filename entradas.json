@@ -151,5 +151,15 @@
     "tipo": "Práctica",
     "descripcion": "Práctica aplicada sobre conectores internos y externos.",
     "url": "publicaciones/UT03-B04-conectores-internos-externos-practica.html"
-  }
+  },
+  
+{
+  "titulo": "UT06 - Taller: Desmontaje y montaje de equipos informáticos",
+  "fecha": "2026-11-18T09:00:00",
+  "unidad": "Taller",
+  "tipo": "Práctica",
+  "descripcion": "Guía interactiva de taller para desmontar, montar y verificar equipos microinformáticos, con procedimientos paso a paso y actividades autocorregibles.",
+  "url": "taller/ensamblado-equipos.html"
+}
+
 ]
