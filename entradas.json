@@ -176,7 +176,17 @@
   "tipo": "Práctica",
   "descripcion": "Guía interactiva de taller para desmontar, montar y verificar equipos microinformáticos, con procedimientos paso a paso y actividades autocorregibles.",
   "url": "taller/ensamblado-equipos.html"
+},
+  
+{
+  "titulo": "UT06 - Taller: Identificación de componentes y lectura de etiquetas",
+  "fecha": "2026-11-18T10:45:00",
+  "unidad": "Taller",
+  "tipo": "Guía interactiva",
+  "descripcion": "Aprender a identificar fuentes, discos, memorias RAM, placas base y procesadores mediante etiquetas y fichas técnicas, con búsquedas guiadas y ejercicios autocorregibles.",
+  "url": "taller/guia-identificacion-componentes.html"
 }
+
   
 
 
