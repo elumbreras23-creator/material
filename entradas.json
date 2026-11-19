@@ -185,7 +185,15 @@
   "tipo": "Guía interactiva",
   "descripcion": "Aprender a identificar fuentes, discos, memorias RAM, placas base y procesadores mediante etiquetas y fichas técnicas, con búsquedas guiadas y ejercicios autocorregibles.",
   "url": "taller/guia-identificacion-componentes.html"
+},
+  
+{
+  "titulo": "UT03 - Lector de fichas técnicas: Memorias RAM",
+  "fecha": "2026-11-19T18:00:00",
+  "descripcion": "Herramienta interactiva para interpretar fichas técnicas de memorias RAM, identificar sus características y calcular frecuencias, tasas de transferencia, ancho de banda teórico y latencias.",
+  "url": "publicaciones/lector_fichas_ram_desde_pdf.html"
 }
+
 
   
 
