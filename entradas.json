@@ -195,15 +195,15 @@
   "url": "taller/guia-identificacion-componentes.html"
 },
   
+
 {
   "titulo": "UT07 - Guía interactiva: Mantenimiento y reparación de equipos",
   "fecha": "2026-11-19T19:45:00",
   "unidad": "UT07",
-  "descripcion": "Tipos de mantenimiento, rendimiento, diagnóstico de averías, procedimientos por componente, periféricos y autoevaluación.",
-  "url": "publicaciones/UT07-guia-interactiva.html"
+  "descripcion": "Tipos de mantenimiento, diagnóstico de averías, procedimientos por componente, periféricos y autoevaluación.",
+  "url": "publicaciones/UT07/UT07-guia-interactiva.html"
 }
 
-  
 
 
 ]
