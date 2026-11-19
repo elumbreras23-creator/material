@@ -1,0 +1,15 @@
+UT07 · WEB DE MANTENIMIENTO Y REPARACIÓN DE EQUIPOS
+
+Publicar en GitHub Pages:
+1. Extraer esta carpeta en la ruta deseada del repositorio (manteniendo casos/ y assets/).
+2. Abrir UT07-guia-interactiva.html.
+3. En el archivo JSON de publicaciones, añadir:
+{
+  "titulo": "UT07 - Guía interactiva: Mantenimiento y reparación de equipos",
+  "fecha": "2026-11-19T19:45:00",
+  "descripcion": "Conceptos, mantenimiento, rendimiento, diagnóstico por componentes, periféricos, vídeos y autoevaluación.",
+  "url": "publicaciones/UT07-guia-interactiva.html"
+}
+ATENCIÓN: esta URL supone que los archivos se han colocado en publicaciones/; si se ubican en otra carpeta, ajustarla. El HTML principal debe quedar junto a los directorios casos y assets.
+
+Las listas de comprobación se guardan en el navegador local.
