@@ -49,6 +49,14 @@
     "url": "publicaciones/UT03-guia-interactiva-memorias-RAM.html"
   },
   {
+  "titulo": "UT03 - Lector de fichas técnicas: Memorias RAM",
+  "fecha": "2026-11-19T18:00:00",
+  "unidad": "UT03",
+  "descripcion": "Herramienta interactiva para interpretar fichas técnicas de memorias RAM, identificar sus características y calcular frecuencias, tasas de transferencia, ancho de banda teórico y latencias.",
+  "url": "publicaciones/lector_fichas_ram_desde_pdf.html"
+},
+
+  {
     "titulo": "UT03 - Itinerario de componentes internos",
     "fecha": "2026-11-17T17:00:00",
     "unidad": "UT03",
@@ -187,13 +195,6 @@
   "url": "taller/guia-identificacion-componentes.html"
 },
   
-{
-  "titulo": "UT03 - Lector de fichas técnicas: Memorias RAM",
-  "fecha": "2026-11-19T18:00:00",
-  "unidad": "UT03",
-  "descripcion": "Herramienta interactiva para interpretar fichas técnicas de memorias RAM, identificar sus características y calcular frecuencias, tasas de transferencia, ancho de banda teórico y latencias.",
-  "url": "publicaciones/lector_fichas_ram_desde_pdf.html"
-}
 
 
   
