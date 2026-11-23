@@ -211,6 +211,16 @@
   "tipo": "Teoría",
   "descripcion": "Guía interactiva sobre tecnología RAID, niveles 0, 1, 5, 6, 10 y 50. Incluye esquemas de distribución de datos, simulador de fallos, calculadora de capacidad útil, tabla comparativa y preguntas de repaso.",
   "url": "publicaciones/UT10_guia_interactiva_RAID_v3.html"
+},
+
+  
+{
+  "titulo": "UT08 - Guía de lectura interactiva: Opciones de arranque e imágenes",
+  "fecha": "2026-11-23T19:30:00",
+  "unidad": "UT08",
+  "tipo": "Teoría",
+  "descripcion": "Guía interactiva de apoyo al PDF de la unidad 8. Incluye particiones, opciones de arranque, instalación de sistemas operativos, copias de seguridad, restauración de datos, clonación de equipos, herramientas y recursos audiovisuales.",
+  "url": "publicaciones/UT08_guia_interactiva_arranque_imagenes_v7.html"
 }
 
 
