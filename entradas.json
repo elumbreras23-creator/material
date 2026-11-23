@@ -202,7 +202,17 @@
   "unidad": "UT07",
   "descripcion": "Tipos de mantenimiento, diagnóstico de averías, procedimientos por componente, periféricos y autoevaluación.",
   "url": "publicaciones/UT07/UT07-guia-interactiva.html"
+},
+  
+{
+  "titulo": "UT10 - Guía interactiva: RAID y tendencias en el mercado informático",
+  "fecha": "2026-11-23T19:30:00",
+  "unidad": "General",
+  "tipo": "Teoría",
+  "descripcion": "Guía interactiva sobre tecnología RAID, niveles 0, 1, 5, 6, 10 y 50. Incluye esquemas de distribución de datos, simulador de fallos, calculadora de capacidad útil, tabla comparativa y preguntas de repaso.",
+  "url": "publicaciones/UT10_guia_interactiva_RAID_v3.html"
 }
+
 
 
 
