@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UT02 · Práctica guiada Von Neumann</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a1424;color:#e8f1fb;font:16px/1.45 system-ui,Segoe UI,Arial,sans-serif}header,main{max-width:1280px;margin:auto;padding:20px}header{padding-top:28px}h1{margin:0 0 8px;font-size:clamp(28px,4vw,42px)}h2{margin:0 0 12px;font-size:21px}p{margin:8px 0}.muted,small{color:#acc2d9}.panel{background:#14243a;border:1px solid #37506c;border-radius:16px;padding:18px;margin:14px 0}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}button,select,input{font:inherit;color:#eaf3ff;background:#203b57;border:1px solid #5d7ea0;border-radius:8px;padding:8px 10px}button{cursor:pointer;font-weight:700}.primary{background:#76d9ea;color:#082033}.secondary{background:#2a465f}button:disabled{opacity:.45;cursor:default}input{width:90px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid #35516d;text-align:left;vertical-align:top}th{color:#92dff1}.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:#17374c;border:1px solid #456a89;color:#d5f4ff;font-size:12px}.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.box{background:#183149;border:1px solid #37536e;border-radius:12px;padding:12px}.box b{color:#ffd18d}.phase{display:flex;gap:8px;margin:10px 0}.phase div{flex:1;padding:9px;border-radius:9px;text-align:center;background:#20354b;color:#adc4db;font-weight:700}.phase .on{background:#176968;color:white;outline:2px solid #8ce6cd}.diagram{overflow:auto;background:#0b192a;border-radius:12px;padding:0}.stats{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}.stats span{background:#193149;border:1px solid #33516a;padding:8px 12px;border-radius:10px}.stats b{color:#8ce6cd;font-size:20px}.status{border-left:4px solid #76d9ea;background:#20364a;padding:12px;border-radius:7px;min-height:66px}.memoryTbl tr.current{background:#705126}.memoryTbl tr.write{background:#245f49}.memoryTbl tr.program{background:#18344d}.memoryTbl td.code{font-family:ui-monospace,Consolas,monospace;font-weight:700}.memoryTbl td.bin{font-family:ui-monospace,Consolas,monospace}.decode{background:#112238;border-radius:10px;padding:12px}.bits{font:700 22px ui-monospace,Consolas,monospace;color:#ffd18d;letter-spacing:2px}.foot{font-size:13px;color:#a9bfd5}svg{display:block;width:100%;min-width:780px}svg text{font-family:system-ui,Segoe UI,Arial,sans-serif;fill:#e8f1fb}svg .sub{fill:#b5c9dc;font-size:12px}svg .reg{fill:#153049;stroke:#6084a6;stroke-width:1.5}svg .hot{stroke:#ffcf80;stroke-width:3;fill:#2c5268}svg .bus{opacity:.35}svg .live{opacity:1}svg .mono{font-family:ui-monospace,Consolas,monospace;font-weight:700}details{margin-top:12px}summary{cursor:pointer}@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.worksheet textarea{display:block;width:100%;margin:5px 0 12px;background:#10273b;color:inherit;border:1px solid #67839b;border-radius:6px;padding:8px;font:inherit}.worksheet .wide{width:260px}.worksheet input[type=date]{width:160px}.answer{display:block}@media print{body{background:white;color:black}header,main> :not(.worksheet){display:none!important}.worksheet{background:white;border:0;margin:0;padding:0}.worksheet input,.worksheet textarea{color:black;background:white;border:1px solid #aaa}.worksheet button{display:none}.worksheet th{color:black}.answer,tr{break-inside:avoid}main{padding:0}}@media print{.worksheet select{color:black;background:white;border:1px solid #aaa}.worksheet textarea{resize:none}}
+</style>
+</head>
+<body>
+<header>
+  <small>1.º SMR · UT02 · Arquitectura de computadores</small>
+  <h1>Práctica guiada · Máquina de Von Neumann</h1>
+  <p class="muted">Versión simplificada · <b>direccionamiento directo</b> · <b>instrucciones de 1 palabra</b> · CPU y memoria</p>
+</header>
+<main><section class="panel"><h2>Tu misión</h2><p>Elige una suma o una resta. Pulsa Preparar actividad y avanza con «Un ciclo». Detente en cada fase, observa el dibujo y completa la ficha de respuestas. Solo es obligatorio realizar una operación. No tienes que construir ningún programa.</p><div class="controls"><label>Actividad <select id="activity"><option value="sum">Suma guiada (5 + 3)</option><option value="sub">Resta guiada (9 − 4)</option></select></label><button id="choose">Preparar actividad</button></div><p id="mission" class="muted"></p><p>Todos los valores de memoria se expresan en hexadecimal. M1 y M2 son datos de la misma RAM. Cada palabra contiene 16 bits; el acumulador opera con los 8 bits inferiores.</p></section>
+
+<section class="panel">
+  <h2>1. Qué significa la RAM en este modelo</h2>
+  <div class="list">
+    <div class="box"><b>Dirección</b><br>Es la <u>posición</u> de memoria a la que apunta el bus de direcciones. Por ejemplo: <code>20</code>.</div>
+    <div class="box"><b>Contenido HEX</b><br>Es lo que <u>hay guardado</u> en esa posición. Por ejemplo: <code>00 05</code> o <code>10 20</code>.</div>
+    <div class="box"><b>Contenido BIN</b><br>Es el mismo contenido, pero escrito en binario para ver los bits.</div>
+    <div class="box"><b>Interpretación</b><br>Indica si esa posición contiene una <u>instrucción</u> (por ejemplo <code>LOAD 20</code>) o un <u>dato</u> (por ejemplo <code>M1[20] = 05 o M2[21] = 03</code>).</div>
+  </div>
+  <p class="muted">En esta versión la memoria se lee por <b>palabras</b>. Cada posición contiene una palabra de 16 bits: <b>8 bits para el código de operación</b> y <b>8 bits para el operando o dato</b>.</p>
+
+  
+</section>
+
+<div class="grid">
+  <section class="panel">
+    <h2>2. Programa en RAM</h2>
+    <p class="muted">Cada instrucción ocupa <b>una sola palabra de 16 bits</b>. Se divide en dos mitades: <b>opcode</b> (qué hacer) y <b>operando</b> (a qué dirección ir). LOAD, ADD, SUB y STORE usan direccionamiento directo. LDI usa un valor inmediato; HALT ignora el operando.</p>
+    <table>
+      <thead><tr><th>Dirección de la instrucción</th><th>Palabra (opcode + operando)</th><th>Qué significa</th></tr></thead>
+<tbody id="programEditor"></tbody>
+    </table>
+    <div class="controls" style="margin-top:10px">
+      <label>Dato M1[20] <input id="d20" readonly value="05" maxlength="2"></label>
+      <label>Dato M2[21] <input id="d21" readonly value="03" maxlength="2"></label>
+      <label>Dato inicial M[22] <input id="d22" readonly value="00" maxlength="2"></label>
+      <button id="load" class="secondary">Reiniciar con estos datos</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>3. Decodificación simplificada</h2>
+    <table>
+      <thead><tr><th>Opcode</th><th>Instrucción</th><th>Acción</th></tr></thead>
+      <tbody id="isa"></tbody>
+    </table>
+    <div class="decode" id="decode">Todavía no se ha decodificado ninguna instrucción. Cuando el decodificador actúe, aquí verás separadas las dos partes del IR: <b>opcode</b> y <b>operando</b>, junto con una explicación guiada de lo que significan.</div>
+  </section>
+</div>
+
+<section class="panel">
+  <h2>4. Sigue el ciclo: búsqueda · decodificación · ejecución</h2>
+  <div class="controls">
+    <button id="step" class="primary">↑ Un ciclo</button>
+    <button id="play">▶ Reproducir</button>
+    <button id="pause">Ⅱ Pausar</button>
+    <label>Velocidad <select id="speed"><option value="1600">Lenta</option><option value="1000" selected>Normal</option><option value="500">Rápida</option></select></label>
+    <span class="tag">Instrucción actual = 1 palabra</span>
+    <span class="tag">Operando = dirección directa</span>
+  </div>
+  <div class="phase" id="phases"><div>Búsqueda</div><div>Decodificación</div><div>Ejecución</div></div>
+  <div class="diagram">
+<svg id="machine" viewBox="0 0 1120 500" role="img" aria-label="CPU, buses, línea de reloj y memoria RAM con direccionamiento directo">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#ffcf80"/></marker>
+  </defs>
+  <rect x="20" y="24" width="455" height="450" rx="18" fill="#17354d" stroke="#5884a1" stroke-width="2"/>
+  <text x="40" y="58" font-size="22" font-weight="700">CPU · ACC de 8 bits</text>
+  <rect id="rUC" x="40" y="78" width="415" height="72" rx="10" class="reg"/>
+  <text x="58" y="102" class="sub">UNIDAD DE CONTROL · decodificador</text>
+  <text id="vUC" x="250" y="130" text-anchor="middle" font-size="18">—</text>
+  <g id="regs"></g>
+  <path id="rALU" d="M68 355 H165 L195 378 L225 355 H322 L288 455 H102 Z" fill="#246251" stroke="#79b29d" stroke-width="2"/>
+  <text x="195" y="405" text-anchor="middle" font-size="24" font-weight="700">ALU</text>
+  <text id="vALU" x="195" y="428" text-anchor="middle" font-size="16">—</text>
+  <rect id="rACC" x="328" y="360" width="125" height="88" rx="10" class="reg"/>
+  <text x="390" y="388" text-anchor="middle" class="sub">ACC</text>
+  <text id="vACC" x="390" y="422" text-anchor="middle" font-size="28" class="mono">00</text>
+  <path id="internal" d="" fill="none" stroke="#ffcf80" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+
+  <rect x="800" y="24" width="292" height="450" rx="18" fill="#173f37" stroke="#5d9c89" stroke-width="2"/>
+  <text x="822" y="58" font-size="22" font-weight="700">RAM · 64 palabras</text>
+  <text x="822" y="82" class="sub">Una sola memoria: instrucciones y datos</text>
+  <text x="829" y="96" font-size="11">Dir. HEX</text><text x="922" y="96" font-size="11">Contenido HEX</text><g id="ramRows"></g>
+
+  <g id="busA" class="bus">
+    <text x="638" y="116" text-anchor="middle" font-size="16" style="fill:#72d9ef">Bus de direcciones · 6 bits →</text>
+    <path d="M475 144 H800" stroke="#72d9ef" stroke-width="4"/>
+    <text id="addrBits" x="638" y="174" text-anchor="middle" class="mono" style="fill:#72d9ef">────────</text>
+  </g>
+  <g id="busC" class="bus">
+    <text x="638" y="224" text-anchor="middle" font-size="16" style="fill:#ffd18d">Bus de control</text>
+    <path d="M475 250 H800" stroke="#ffd18d" stroke-width="4"/>
+    <text id="ctrl" x="638" y="280" text-anchor="middle" class="mono" style="fill:#ffd18d">IDLE</text>
+  </g>
+  <g id="busD" class="bus">
+    <text x="638" y="334" text-anchor="middle" font-size="16" style="fill:#81e2b5">Bus de datos · 16 bits ⇄</text>
+    <path d="M475 360 H800" stroke="#81e2b5" stroke-width="4"/>
+    <text id="dataBits" x="638" y="390" text-anchor="middle" class="mono" style="fill:#81e2b5">────────────────────────</text>
+  </g>
+  <g id="busCLK" class="live">
+    <text x="638" y="424" text-anchor="middle" font-size="16" style="fill:#d3b3ff">Línea de reloj · CLK</text>
+    <path id="clkLine" d="M475 440 H800" stroke="#d3b3ff" stroke-width="4"/>
+    <path id="clkWave" d="M520 454 v-18 h24 v18 h24 v-18 h24 v18 h24" fill="none" stroke="#d3b3ff" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <g id="token" visibility="hidden">
+    <rect x="-45" y="-17" width="90" height="34" rx="8" fill="#0a2234" stroke="#81e2b5" stroke-width="2"/>
+    <text id="tokenText" x="0" y="6" text-anchor="middle" font-size="16" class="mono"></text>
+  </g>
+  <text id="clkText" x="638" y="472" text-anchor="middle" class="sub">CLK ↑ · un avance lógico</text>
+  <text id="svgCycle" x="638" y="492" text-anchor="middle" font-size="20" font-weight="700">Ciclo 0</text>
+</svg>
+  </div>
+  <div class="stats">
+    <span>Ciclo <b id="count">0</b></span>
+    <span>CP <b id="cpVal">00</b></span>
+    <span>ACC <b id="accVal">00</b></span>
+    <span>Resultado M[22] <b id="result">00</b></span>
+  </div>
+  <div id="status" class="status">Programa preparado. Pulsa “Un ciclo”.</div>
+  <details>
+    <summary>Ver historial</summary>
+    <table><thead><tr><th>Ciclo</th><th>Fase</th><th>Acción</th></tr></thead><tbody id="history"></tbody></table>
+  </details>
+</section>
+
+<section class="panel">
+  <h2>5. Memoria RAM: ahora separada y más clara</h2>
+  <p class="muted">Cada fila representa una <b>posición de memoria</b>. <b>Dirección</b> = número de la fila. <b>Contenido HEX</b> = lo que hay guardado. <b>Interpretación</b> = cómo debemos leer ese contenido: como <u>instrucción</u> o como <u>dato</u>.</p>
+  <table class="memoryTbl">
+    <thead><tr><th>Dirección</th><th>Contenido HEX<br><small>(palabra guardada)</small></th><th>Contenido BIN<br><small>(la misma palabra en bits)</small></th><th>Interpretación<br><small>(instrucción o dato)</small></th></tr></thead>
+    <tbody id="memoryRows"></tbody>
+  </table>
+</section>
+
+<section class="panel foot">
+  <p><b>Decisión didáctica adoptada:</b> para que una sola posición de memoria contenga una instrucción completa con direccionamiento directo, esta versión usa <b>palabras de 16 bits</b> (opcode + operando). Eso simplifica mucho la lectura del modelo.</p>
+  <p>La CPU sigue trabajando con un acumulador de 8 bits y la ALU realiza las sumas y restas módulo 256. El objetivo es pedagógico, no reproducir una CPU comercial real.</p>
+</section>
+
+<section class="panel worksheet"><h2>Ficha de respuestas · entregar</h2><p>Nombre y apellidos: <input class="wide" aria-label="Nombre"> Fecha: <input type="date" aria-label="Fecha"></p><p>Operación realizada: <select aria-label="Operación realizada"><option value="">Selecciona</option><option>Suma (5 + 3)</option><option>Resta (9 − 4)</option></select></p><p>Completa con tus propias palabras y los valores que observas. Puedes reiniciar la simulación tantas veces como necesites. No hay autocorrección.</p><h3>A. Búsqueda de la primera instrucción</h3><label class="answer">¿Qué dirección contiene CP al empezar y qué palabra se lee de esa dirección?<textarea rows="3"></textarea></label><label class="answer">¿Qué registro recibe la instrucción y qué bus transporta la palabra desde RAM?<textarea rows="3"></textarea></label><h3>B. Decodificación y carga</h3><label class="answer">¿Cuál es el opcode de LOAD y cuál es su operando? Explica qué significa cada uno.<textarea rows="3"></textarea></label><label class="answer">¿A qué dirección de RAM accede después la CPU y qué dato llega a ACC?<textarea rows="3"></textarea></label><h3>C. Operación aritmética</h3><label class="answer">¿Qué instrucción realiza la suma o resta? ¿Qué dos valores utiliza la ALU y qué resultado deja en ACC?<textarea rows="3"></textarea></label><label class="answer">Antes de ejecutar STORE, ¿qué valor hay en M[22]? ¿Por qué?<textarea rows="3"></textarea></label><h3>D. Almacenamiento y finalización</h3><label class="answer">¿Qué dirección recibe el resultado al ejecutar STORE? ¿Qué valor queda allí?<textarea rows="3"></textarea></label><label class="answer">¿Qué ocurre al ejecutar HALT? ¿Para qué sirve el reloj durante la simulación?<textarea rows="3"></textarea></label><h3>Rúbrica de evaluación · 10 puntos</h3><table><thead><tr><th>Criterio</th><th>Logro completo</th><th>Logro parcial</th><th>No logrado</th></tr></thead><tbody><tr><td>Búsqueda (2)</td><td>2: identifica CP, palabra, IR y bus.</td><td>1: identifica parte del recorrido.</td><td>0: ausente o incorrecto en lo esencial.</td></tr><tr><td>Decodificación y carga (3)</td><td>3: distingue opcode, operando, dirección y dato cargado.</td><td>1–2: interpretación parcialmente correcta.</td><td>0: ausente o incorrecto en lo esencial.</td></tr><tr><td>Operación aritmética (3)</td><td>3: identifica instrucción, operandos, resultado y estado de RAM antes de STORE.</td><td>1–2: explica parte de la operación.</td><td>0: ausente o incorrecto en lo esencial.</td></tr><tr><td>Almacenamiento y finalización (2)</td><td>2: identifica destino, resultado, HALT y función del reloj.</td><td>1: explicación parcialmente correcta.</td><td>0: ausente o incorrecto en lo esencial.</td></tr></tbody></table><button onclick="window.print()">Imprimir ficha / guardar PDF</button></section></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const hex=n=>(n&255).toString(16).toUpperCase().padStart(2,'0');
+const bin8=n=>(n&255).toString(2).padStart(8,'0');
+const wordHex=w=>`${hex(w.op)} ${hex(w.arg)}`;
+const wordBin=w=>`${bin8(w.op)} ${bin8(w.arg)}`;
+const ISA={0x10:['LOAD','ACC ← M[dir]'],0x20:['ADD','ACC ← ACC + M[dir]'],0x30:['STORE','M[dir] ← ACC'],0x40:['SUB','ACC ← ACC − M[dir]'],0x50:['LDI','ACC ← valor inmediato'],0xFF:['HALT','Detener CPU']};
+let mem=[], state=null, timer=null, anim=null, written=-1;
+
+function makeWord(op=0,arg=0,type='data'){return {op:op&255,arg:arg&255,type};}
+function initMemory(){
+  const words=Array.from({length:4},(_,i)=>{const op=Number($('pOp'+i).value),arg=parseByte($('pArg'+i).value);if(!$('pOp'+i).value||!ISA[op])throw Error('Selecciona una instrucción en cada fila.');if([16,32,48,64].includes(op)&&![32,33,34].includes(arg))throw Error('En esta práctica las direcciones de datos son 20, 21 o 22.');return makeWord(op,arg,'instr');});
+  const data=['d20','d21','d22'].map(id=>parseByte($(id).value));
+  mem=Array.from({length:64},()=>makeWord(0,0,'data'));
+  words.forEach((w,i)=>mem[i]=w);
+  mem[0x20]=makeWord(0x00,parseByte($('d20').value),'data');
+  mem[0x21]=makeWord(0x00,parseByte($('d21').value),'data');
+  mem[0x22]=makeWord(0x00,parseByte($('d22').value),'data');
+}
+function parseByte(v){if(!/^[0-9a-fA-F]{1,2}$/.test(v.trim()))throw Error('Introduce un byte hexadecimal entre 00 y FF.'); return parseInt(v,16);}
+function resetState(){
+  written=-1;
+  state={CP:0,IRop:0,IRarg:0,MAR:0,MDRop:0,MDRarg:0,ACC:0,uc:'—',alu:'—',cycle:0,phase:-1,stage:0,halt:false,addr:null,word:null,ctrl:'IDLE',log:[],msg:'Programa preparado. Pulsa “Un ciclo”.',path:'',hot:[]};
+}
+function loadAll(){
+  stop();try{initMemory();resetState();render();stop();}
+  catch(e){alert(e.message)}
+}
+
+$('isa').innerHTML=Object.entries(ISA).map(([k,v])=>`<tr id="op${+k}"><td>${hex(+k)}</td><td><b>${v[0]}</b></td><td>${v[1]}</td></tr>`).join('');
+const regInfo=[['CP','Próxima dirección',40,170],['IR','Instrucción actual',252,170],['MAR','Dirección seleccionada',40,270],['MDR','Palabra leída/escrita',252,270]];
+$('regs').innerHTML=regInfo.map(([r,d,x,y])=>`<rect id="r${r}" x="${x}" y="${y}" width="190" height="82" rx="10" class="reg"/><text x="${x+14}" y="${y+24}" font-size="16" font-weight="700">${r}</text><text x="${x+14}" y="${y+46}" class="sub">${d}</text><text id="v${r}" x="${x+95}" y="${y+68}" text-anchor="middle" font-size="25" class="mono">00</text>`).join('');
+
+function bus(addr,word,ctrl){state.addr=addr;state.word=word;state.ctrl=ctrl;}
+function finishInstruction(){state.stage=0;}
+function step(){
+  if(!state || state.halt) return;
+  state.cycle++; state.addr=null; state.word=null; state.ctrl='IDLE'; state.hot=[]; state.path=''; state.alu='—'; written=-1;
+  let msg='';
+  switch(state.stage){
+    case 0:
+      state.phase=0;
+      state.uc='Buscando instrucción';
+      state.MAR=state.CP;
+      state.hot=['CP','MAR'];
+      state.path='M136 252 V270';
+      bus(state.MAR,null,'READ');
+      msg=`Búsqueda: CP → MAR. La CPU selecciona la palabra de memoria ${hex(state.MAR)}.`;
+      state.stage=1;
+      break;
+    case 1:
+      state.MDRop=mem[state.MAR].op; state.MDRarg=mem[state.MAR].arg;
+      state.IRop=state.MDRop; state.IRarg=state.MDRarg;
+      state.CP=(state.CP+1)&63;
+      state.hot=['MDR','IR','CP'];
+      state.path='M348 270 V252';
+      bus(state.MAR,mem[state.MAR],'READ');
+      msg=`La RAM entrega la palabra ${wordHex(mem[state.MAR])}. IR ← ${wordHex(mem[state.MAR])}; CP avanza a ${hex(state.CP)}.`;
+      state.stage=2;
+      break;
+    case 2:
+      state.phase=1;
+      state.hot=['IR','UC'];
+      state.path='M348 170 V150';
+      state.uc=ISA[state.IRop]?.[0]||'Inválida';
+      msg=`Decodificación: opcode ${hex(state.IRop)} = ${state.uc}. Operando directo = ${hex(state.IRarg)}.`;
+      if(!ISA[state.IRop]){ state.halt=true; msg='Código no reconocido: CPU detenida.'; }
+      else state.stage=3;
+      break;
+    case 3:
+      state.phase=2;
+      state.hot=['UC'];
+      if(state.IRop===0xFF){ state.halt=true; msg='HALT: finaliza el programa.'; break; }
+      if(state.IRop===0x50){ state.ACC=state.IRarg; state.hot.push('ACC'); state.path='M250 150 V170 H391 V360'; msg=`LDI: ACC recibe directamente el valor ${hex(state.ACC)}.`; finishInstruction(); break; }
+      state.MAR=state.IRarg; state.hot.push('MAR');
+      bus(state.MAR,null,state.IRop===0x30?'WRITE':'READ');
+      msg=`Ejecución: el operando es una dirección directa. Se accede a M[${hex(state.MAR)}].`;
+      state.stage=4;
+      break;
+    case 4:
+      state.phase=2;
+      if(state.IRop===0x30){
+        mem[state.MAR]=makeWord(0x00,state.ACC,'data');
+        state.MDRop=0x00; state.MDRarg=state.ACC;
+        state.hot=['ACC','MDR'];
+        state.path='M391 360 V360';
+        bus(state.MAR,mem[state.MAR],'WRITE');
+        written=state.MAR;
+        msg=`STORE: se escribe ${hex(state.ACC)} en la posición ${hex(state.MAR)}.`;
+        finishInstruction();
+      }else{
+        state.MDRop=mem[state.MAR].op; state.MDRarg=mem[state.MAR].arg;
+        state.hot=['MDR'];
+        bus(state.MAR,mem[state.MAR],'READ');
+        msg=`La RAM devuelve el contenido de M[${hex(state.MAR)}] = ${wordHex(mem[state.MAR])}.`;
+        state.stage=5;
+      }
+      break;
+    case 5:
+      state.phase=2;
+      const dato=state.MDRarg, old=state.ACC;
+      if(state.IRop===0x10){
+        state.ACC=dato; state.hot=['MDR','ACC']; state.path='M348 360 H391';
+        msg=`LOAD: ACC recibe el dato ${hex(dato)} de ${state.MAR===0x20?"M1[20]":"M["+hex(state.MAR)+"]"}.`;
+      }else if(state.IRop===0x20){
+        state.ACC=(state.ACC+dato)&255; state.hot=['MDR','ALU','ACC']; state.path='M348 360 H195 V355 H328'; state.alu=`${hex(old)} + ${hex(dato)} = ${hex(state.ACC)}`;
+        msg=`ADD: la ALU suma ${hex(old)} + ${hex(dato)} = ${hex(state.ACC)} usando ${state.MAR===0x21?"M2[21]":"M["+hex(state.MAR)+"]"}.`;
+      }else if(state.IRop===0x40){
+        state.ACC=(state.ACC-dato)&255; state.hot=['MDR','ALU','ACC']; state.path='M348 360 H195 V355 H328'; state.alu=`${hex(old)} − ${hex(dato)} = ${hex(state.ACC)}`;
+        msg=`SUB: la ALU resta ${hex(old)} − ${hex(dato)} = ${hex(state.ACC)}.`;
+      }
+      finishInstruction();
+      break;
+  }
+  state.msg=msg;
+  state.log.push([state.cycle,['Búsqueda','Decodificación','Ejecución'][state.phase]||'—',msg]);
+  render();
+  if(state.halt) stop();
+}
+
+function interpAt(addr){
+  const w=mem[addr];
+  if(w.type==='instr' || addr<4){
+    const name=ISA[w.op]?.[0]||'???';
+    return `${name} ${hex(w.arg)}`;
+  }
+  if(addr===0x20) return `Dato M1[20] = ${hex(w.arg)}`;
+  if(addr===0x21) return `Dato M2[21] = ${hex(w.arg)}`;
+  if(addr===0x22) return `Resultado M[22] = ${hex(w.arg)}`;
+  return `Dato = ${hex(w.arg)}`;
+}
+function render(){
+  if(!state) return;
+  $('vUC').textContent=state.uc;
+  $('vALU').textContent=state.alu;
+  $('vACC').textContent=hex(state.ACC);
+  $('vCP').textContent=hex(state.CP);
+  $('vIR').textContent=`${hex(state.IRop)} ${hex(state.IRarg)}`;
+  $('vMAR').textContent=hex(state.MAR);
+  $('vMDR').textContent=`${hex(state.MDRop)} ${hex(state.MDRarg)}`;
+  for(const [r] of regInfo) $('r'+r).classList.toggle('hot',state.hot.includes(r));
+  for(const r of ['UC','ALU','ACC']) $('r'+r).classList.toggle('hot',state.hot.includes(r));
+  $('internal').setAttribute('d',state.path);
+  $('count').textContent=state.cycle; $('svgCycle').textContent='Ciclo '+state.cycle; $('cpVal').textContent=hex(state.CP); $('accVal').textContent=hex(state.ACC); $('result').textContent=hex(mem[0x22].arg);
+  $('status').textContent=state.msg; $('clkText').textContent='CLK ↑ · flanco '+state.cycle;
+  const clkColor=state.cycle%2?'#ffd18d':'#d3b3ff'; $('clkLine').setAttribute('stroke',clkColor); $('clkWave').setAttribute('stroke',clkColor);
+  $('addrBits').textContent=state.addr===null?'────────':bin8(state.addr).slice(2);
+  $('ctrl').textContent=state.ctrl;
+  $('dataBits').textContent=state.word===null?'────────────────────────':wordBin(state.word);
+  [['busA',state.addr!==null],['busC',state.ctrl!=='IDLE'],['busD',state.word!==null]].forEach(([id,on])=>$(id).classList.toggle('live',on));
+  $('phases').querySelectorAll('div').forEach((el,i)=>el.classList.toggle('on',i===state.phase));
+  document.querySelectorAll('#isa tr').forEach(tr=>tr.classList.toggle('classActive',false));
+  document.querySelectorAll('#isa tr').forEach(tr=>tr.style.background='');
+  if(state.phase>=1 && ISA[state.IRop]) document.getElementById('op'+state.IRop).style.background='#355676';
+  const op=state.IRop,arg=hex(state.IRarg),name=ISA[op]?.[0]||'Desconocida';
+  const target=state.IRarg===32?'M1[20]':state.IRarg===33?'M2[21]':'M['+arg+']';
+  const explanation={16:'Carga el contenido de '+target+' en ACC.',32:'Suma el contenido de '+target+' al ACC.',64:'Resta el contenido de '+target+' al ACC.',48:'Guarda ACC en '+target+'.',80:'Carga el valor inmediato '+arg+' en ACC.',255:'Detiene el programa; el operando no se utiliza.'}[op]||'Código inválido.';
+  $('decode').innerHTML=state.phase>=1?`<b>IR:</b> <span class="bits">${bin8(op)} ${bin8(state.IRarg)}</span><br><b>Opcode:</b> ${hex(op)} → ${name}<br><b>Operando:</b> ${arg} · ${op===255?'ignorado':op===80?'valor inmediato':'dirección directa'}<br><p>${explanation}</p>`:'Esperando al decodificador.';
+  const shown=[0,1,2,3,0x20,0x21,0x22];
+  $('ramRows').innerHTML=shown.map((a,i)=>`<rect x="815" y="98" width="260" height="34" rx="5" visibility="hidden"></rect>`).join('');
+  $('ramRows').innerHTML=shown.map((a,i)=>{
+    let fill = state.addr===a ? '#805c2a' : written===a ? '#2e765a' : a<4 ? '#10384a' : '#102f2c';
+    return `<rect x="815" y="${105+i*40}" width="260" height="34" rx="6" fill="${fill}"/><text x="828" y="${128+i*40}" font-size="15" class="mono">${hex(a)}</text><text x="925" y="${128+i*40}" font-size="15" class="mono">${wordHex(mem[a])}</text>`;
+  }).join('');
+  $('memoryRows').innerHTML = shown.map(a=>`<tr class="${state.addr===a?'current':''} ${written===a?'write':''} ${a<4?'program':''}"><td class="code">${hex(a)}</td><td class="code">${wordHex(mem[a])}</td><td class="bin">${wordBin(mem[a])}</td><td>${interpAt(a)}</td></tr>`).join('');
+  $('history').innerHTML = state.log.slice(-24).map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+  $('step').disabled=state.halt;
+  animateToken();
+}
+function animateToken(){
+  if(anim) anim.cancel();
+  const token=$('token'); token.setAttribute('visibility','hidden');
+  if(state.addr===null) return;
+  const isData = state.word!==null;
+  const y = isData ? 360 : 144;
+  const from = isData && state.ctrl==='READ' ? 780 : 495;
+  const to = isData && state.ctrl==='READ' ? 495 : 780;
+  token.setAttribute('visibility','visible');
+  token.setAttribute('transform',`translate(${to} ${y})`);
+  token.querySelector('rect').setAttribute('stroke', isData ? '#81e2b5' : '#72d9ef');
+  $('tokenText').textContent = isData ? wordHex(state.word) : '@'+hex(state.addr);
+  anim = token.animate([{transform:`translate(${from}px,${y}px)`},{transform:`translate(${to}px,${y}px)`}], {duration:Math.min(750,+$('speed').value*.75), easing:'ease-in-out'});
+}
+function stop(){ clearInterval(timer); timer=null; $('pause').disabled=true; $('play').disabled=!state||!!state.halt; }
+$('load').onclick=loadAll;
+$('step').onclick=()=>{ stop(); step(); };
+$('play').onclick=()=>{ if(state.halt||timer) return; step(); if(state.halt)return; timer=setInterval(()=>{ if(state.halt){ stop(); return;} step(); }, +$('speed').value); $('play').disabled=true; $('pause').disabled=false; };
+$('pause').onclick=stop;
+$('speed').onchange=()=>{ if(timer){ stop(); $('play').click(); } };
+function choose(){stop();const sub=$('activity').value==='sub';const ops=[16,sub?64:32,48,255],args=['20','21','22','00'];$('mission').textContent='Programa preparado: observa la búsqueda, la decodificación, la operación de la ALU y el almacenamiento.';$('d20').value=sub?'09':'05';$('d21').value=sub?'04':'03';$('d22').value='00';$('programEditor').innerHTML=ops.map((op,i)=>`<tr><td>${hex(i)}</td><td>${hex(op)} ${args[i]}<input type="hidden" id="pOp${i}" value="${op}"><input type="hidden" id="pArg${i}" value="${args[i]}"></td><td>${ISA[op][0]} ${op===255?'':args[i]}</td></tr>`).join('');loadAll();}
+$('choose').onclick=choose;choose();
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('.worksheet textarea').forEach(t=>{t.style.height='auto';t.style.height=(t.scrollHeight+4)+'px';});});
+</script>
+</body>
+</html>
