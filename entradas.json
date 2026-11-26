@@ -221,6 +221,14 @@
   "tipo": "Teoría",
   "descripcion": "Guía interactiva de apoyo al PDF de la unidad 8. Incluye particiones, opciones de arranque, instalación de sistemas operativos, copias de seguridad, restauración de datos, clonación de equipos, herramientas y recursos audiovisuales.",
   "url": "publicaciones/UT08_guia_interactiva_arranque_imagenes_v7.html"
+},
+  {
+    "titulo": "UT02 - Simulador interactivo de Von Neumann",
+    "fecha": "2026-11-26T17:10:00",
+    "unidad": "UT02",
+    "tipo": "Simulador",
+    "descripcion": "Simulador gráfico e interactivo del ciclo de búsqueda, decodificación y ejecución de instrucciones con direccionamiento directo. Permite observar el funcionamiento de los registros de la CPU, la ALU, los buses, la memoria RAM y la sincronización mediante el reloj.",
+    "url": "publicaciones/UT02-simulador-von-neumann-v6-ajustes.html"
 }
 
 
