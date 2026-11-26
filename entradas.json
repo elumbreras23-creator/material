@@ -237,6 +237,14 @@
     "tipo": "Práctica",
     "descripcion": "Práctica guiada e interactiva para comprender el ciclo de búsqueda, decodificación y ejecución de instrucciones mediante operaciones de suma y resta con direccionamiento directo. Incluye simulador gráfico, seguimiento de registros, ficha de respuestas imprimible y rúbrica de evaluación.",
     "url": "publicaciones/UT02-practica-guiada-von-neumann.html"
+},
+  {
+    "titulo": "UT02 - Práctica 1SMR: Máquina de Von Neumann",
+    "fecha": "2026-11-26T19:00:00",
+    "unidad": "UT02",
+    "tipo": "Práctica",
+    "descripcion": "Práctica guiada para comprender el funcionamiento interno de la máquina de Von Neumann mediante la simulación de una suma o una resta. Incluye observación del ciclo de instrucción, preguntas de razonamiento, ficha de respuestas imprimible en PDF y rúbrica de evaluación.",
+    "url": "publicaciones/UT02-practica-guiada-von-neumann-v2.html"
 }
 
 
