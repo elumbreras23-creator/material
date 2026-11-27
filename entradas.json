@@ -252,6 +252,13 @@
   "titulo": "Simulador de consumo energético de un PC",
   "url": "energia/UT01-simulador-consumo-PC-v2.html",
   "descripcion": "Simulador interactivo de potencia eléctrica, energía acumulada y coste energético de un ordenador. Incluye configuración de componentes, rendimiento de la fuente de alimentación, régimen transitorio de arranque y contador de energía en tiempo real."
+},
+  {
+  "unidad": "Energía",
+  "tipo": "Simulador",
+  "titulo": "Simulador de montaje de PC y dimensionamiento de la fuente de alimentación",
+  "url": "energia/UT06-simulador-montaje-pc-v5.html",
+  "descripcion": "Simulador interactivo para configurar los componentes de un ordenador, analizar sus necesidades de potencia eléctrica y comprobar si la fuente de alimentación seleccionada es adecuada para el conjunto del equipo."
 }
 
 
