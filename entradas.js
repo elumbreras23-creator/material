@@ -1,4 +1,3 @@
-
 fetch("entradas.json")
   .then(respuesta => {
     if (!respuesta.ok) {
@@ -26,7 +25,9 @@ fetch("entradas.json")
       "UT06": [],
       "UT07": [],
       "UT08": [],
-      "UT09": []
+      "UT09": [],
+      "Taller": [],
+      "Energía": []
     };
 
     // Clasificar las publicaciones por unidad
@@ -53,7 +54,9 @@ fetch("entradas.json")
       "UT06",
       "UT07",
       "UT08",
-      "UT09"
+      "UT09",
+      "Taller",
+      "Energía"
     ];
 
     // Añadir otras unidades que pudieran existir
